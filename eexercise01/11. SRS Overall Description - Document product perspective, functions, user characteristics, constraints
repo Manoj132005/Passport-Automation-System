@@ -1,1 +1,42 @@
+# SRS Overall Description
+
+## 1. Product Perspective
+The Passport Automation System is a standalone web-based application designed to replace the existing manual and semi-digital passport processing system.  
+It integrates user registration, application submission, document verification, and approval workflows into a single platform.
+
+## 2. Product Functions
+The main functions of the system include:
+- User registration and login  
+- Online passport application submission  
+- Uploading and managing documents  
+- Appointment scheduling for verification  
+- Application status tracking  
+- Admin and officer verification panel  
+- Approval or rejection of applications  
+
+## 3. User Classes and Characteristics
+- **Applicants:**  
+  Citizens with basic computer and internet knowledge.  
+- **Passport Officers:**  
+  Government staff trained to verify documents and process applications.  
+- **System Administrators:**  
+  Technical staff responsible for system maintenance and user management.  
+
+## 4. Operating Environment
+- Web browser (Chrome, Edge, Firefox)  
+- Server: Cloud or local government data center  
+- Database: MySQL / MongoDB  
+- Backend: Python (Django/Flask) or Node.js  
+- Frontend: HTML, CSS, JavaScript  
+
+## 5. Design and Implementation Constraints
+- Must comply with government security and data protection regulations  
+- Requires continuous internet connectivity  
+- Integration with external police verification systems is limited  
+- Budget and time constraints  
+
+## 6. Assumptions and Dependencies
+- Users have internet access and valid identity documents  
+- Government approval workflows remain consistent  
+- Hosting infrastructure is available and reliable  
 
