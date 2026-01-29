@@ -1,1 +1,24 @@
+Problem 25: Use Case Relationships
+Overview
 
+Key relationships among use cases in the Passport Automation System were identified to represent dependencies and extensions between system functionalities.
+
+Use Case Relationships
+
+Apply for Passport → includes Upload Documents
+
+Apply for Passport → includes Book Appointment
+
+Track Application Status → includes Send Notifications
+
+Verify Application → extends Approve / Reject Application
+
+Relationship Description
+Use Case	Related Use Case	Relationship Type
+Apply for Passport	Upload Documents	Include
+Apply for Passport	Book Appointment	Include
+Track Application Status	Send Notifications	Include
+Verify Application	Approve / Reject Application	Extend
+Outcome
+
+Clear functional dependencies were established, ensuring better understanding of system flow and interaction between related use cases.
