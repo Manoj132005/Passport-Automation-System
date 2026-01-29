@@ -1,13 +1,172 @@
-Documentation Lead Deliverables
-The following SEAD tasks are fully documented in the file: SEAD_Documentation_Lead.pdf
+# SEAD Documentation Lead – Deliverables
 
-Covered Problems:
+This document summarizes the SEAD tasks completed and documented by the **Documentation Lead**.  
+All listed problems are fully detailed in the file **SEAD_Documentation_Lead.pdf**.
 
-P02: Team Agreement
-P04: Stakeholder Analysis
-P05: Stakeholder Interests
-P06: Stakeholder Register
-P12: Functional Requirements
-P13: Non-Functional Requirements
-P15: Glossary
-P17: Stakeholder Register Submission
+---
+
+## Covered Problems
+
+- **P02** – Team Agreement  
+- **P04** – Stakeholder Analysis  
+- **P05** – Stakeholder Interests  
+- **P06** – Stakeholder Register  
+- **P12** – Functional Requirements  
+- **P13** – Non-Functional Requirements  
+- **P15** – Glossary  
+- **P17** – Stakeholder Register Submission  
+
+---
+
+## P02: Team Agreement
+
+### Overview
+The Team Agreement defines collaboration rules, roles, and responsibilities among team members.
+
+### Key Elements
+- Roles and responsibilities  
+- Communication methods  
+- Decision-making process  
+- Conflict resolution  
+- Commitment to timelines and quality  
+
+### Outcome
+Ensured effective teamwork and accountability throughout the project.
+
+---
+
+## P04: Stakeholder Analysis
+
+### Overview
+Stakeholder Analysis identifies individuals or groups that influence or are affected by the system.
+
+### Identified Stakeholders
+- Project Sponsor  
+- End Users  
+- System Administrator  
+- Development Team  
+- Regulatory Authorities  
+
+### Analysis Criteria
+- Power  
+- Interest  
+- Influence  
+- Impact  
+
+### Outcome
+Stakeholders were categorized to support engagement planning.
+
+---
+
+## P05: Stakeholder Interests
+
+### Overview
+Documents expectations and concerns of stakeholders.
+
+### Stakeholder Interests Table
+
+| Stakeholder | Interest |
+|------------|----------|
+| End Users | Simple and reliable system |
+| Sponsor | Cost efficiency and timely delivery |
+| Admin | Secure and manageable system |
+| Developers | Clear requirements |
+
+### Outcome
+Stakeholder expectations were aligned with system objectives.
+
+---
+
+## P06: Stakeholder Register
+
+### Overview
+Centralized register of all stakeholders and their attributes.
+
+### Stakeholder Register Table
+
+| ID | Role | Interest | Influence | Communication |
+|----|------|----------|-----------|--------------|
+| S01 | Sponsor | High | High | Weekly updates |
+| S02 | End User | High | Medium | Demos & feedback |
+| S03 | Admin | Medium | Medium | Monthly review |
+
+### Outcome
+Improved stakeholder tracking and communication.
+
+---
+
+## P12: Functional Requirements
+
+### Overview
+Defines what the system should do.
+
+### Functional Requirements
+- User registration and login  
+- Data entry and validation  
+- Automated processing  
+- Report generation  
+- Status tracking  
+
+### Outcome
+Provided clear system functionality for implementation.
+
+---
+
+## P13: Non-Functional Requirements
+
+### Overview
+Defines how the system performs.
+
+### Categories
+- Performance  
+- Security  
+- Scalability  
+- Usability  
+- Reliability  
+
+### Examples
+- Response time < 3 seconds  
+- Secure authentication  
+- 99.9% system availability  
+
+### Outcome
+Ensured system quality and constraints are defined.
+
+---
+
+## P15: Glossary
+
+### Overview
+Defines important terms used in the project.
+
+### Glossary Table
+
+| Term | Definition |
+|------|------------|
+| Stakeholder | Individual affected by the system |
+| Functional Requirement | System functionality |
+| Non-Functional Requirement | Quality attributes |
+
+### Outcome
+Improved clarity and consistency.
+
+---
+
+## P17: Stakeholder Register Submission
+
+### Overview
+Final review and submission of the stakeholder register.
+
+### Submission Details
+- Verified accuracy  
+- Aligned with stakeholder analysis  
+- Submitted in required format  
+
+### Outcome
+Successful completion of stakeholder documentation.
+
+---
+
+## Conclusion
+
+All assigned **SEAD Documentation Lead tasks** have been completed and documented successfully.
