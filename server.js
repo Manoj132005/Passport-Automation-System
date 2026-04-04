@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -9,7 +10,7 @@ const db = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const SECRET_KEY = 'super_secret_passport_key'; // in real-world, use env variables
+const SECRET_KEY = process.env.SECRET_KEY || 'super_secret_passport_key'; 
 
 // Middleware
 app.use(cors());

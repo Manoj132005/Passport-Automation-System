@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication — PassportX</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <div class="auth-page">
+    <div class="auth-container">
+      <div class="auth-header">
+        <div class="auth-logo">🛂</div>
+        <h1 class="auth-title">Welcome to PassportX</h1>
+        <p class="auth-subtitle">Secure access to your digital passport portal</p>
+      </div>
+
+      <div class="glass-card auth-card">
+        
+        <!-- Tabs -->
+        <div class="tab-group">
+          <button class="tab-btn active" id="tab-login" onclick="switchTab('login')">Login</button>
+          <button class="tab-btn" id="tab-register" onclick="switchTab('register')">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="admin@passport.gov" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+            Secure Login 🔐
+          </button>
+        </form>
+
+        <!-- Register Form (Hidden by default) -->
+        <form id="register-form" class="auth-form" style="display: none;">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="••••••••" required />
+            <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Must be at least 6 characters</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Role</label>
+            <select id="reg-role" class="form-control" required>
+              <option value="applicant">Applicant</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+            Create Account ✨
+          </button>
+        </form>
+
+        <div class="auth-divider">or</div>
+
+        <div class="auth-footer">
+          <a href="index.html">← Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab Switching Logic
+    function switchTab(tab) {
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      const tabLogin = document.getElementById('tab-login');
+      const tabRegister = document.getElementById('tab-register');
+
+      if (tab === 'login') {
+        loginForm.style.display = 'flex';
+        registerForm.style.display = 'none';
+        tabLogin.classList.add('active');
+        tabRegister.classList.remove('active');
+        window.location.hash = 'login';
+      } else {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'flex';
+        tabLogin.classList.remove('active');
+        tabRegister.classList.add('active');
+        window.location.hash = 'register';
+      }
+    }
+
+    // Check hash on load
+    if (window.location.hash === '#register') {
+      switchTab('register');
+    } else {
+      switchTab('login');
+    }
+
+    // Listen to hash changes (e.g., when clicking links from navbar)
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#register') {
+        switchTab('register');
+      } else if (window.location.hash === '#login' || window.location.hash === '') {
+        switchTab('login');
+      }
+    });
+
+    // Helper: Show Toast
+    function showToast(message, type = 'success') {
+      const toastContainer = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.style.padding = '12px 24px';
+      toast.style.background = type === 'success' ? 'var(--success)' : 'var(--danger)';
+      toast.style.color = 'white';
+      toast.style.borderRadius = 'var(--radius-md)';
+      toast.style.marginBottom = '12px';
+      toast.style.boxShadow = 'var(--shadow-card)';
+      toast.style.fontSize = '14px';
+      toast.style.fontWeight = '600';
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(20px)';
+      toast.style.transition = 'all 0.3s ease';
+      toast.innerText = message;
+
+      toastContainer.appendChild(toast);
+      
+      // Position toast container
+      toastContainer.style.position = 'fixed';
+      toastContainer.style.bottom = '20px';
+      toastContainer.style.right = '20px';
+      toastContainer.style.zIndex = '9999';
+
+      // Animate in
+      setTimeout(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+      }, 10);
+
+      // Animate out and remove
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // Login Submission
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          showToast('Login successful!');
+          
+          setTimeout(() => {
+            if (data.user.role === 'admin') {
+              window.location.href = 'admin.html';
+            } else {
+              window.location.href = 'dashboard.html';
+            }
+          }, 800);
+        } else {
+          showToast(data.error || 'Login failed', 'error');
+        }
+      } catch (err) {
+        showToast('Network error', 'error');
+      }
+    });
+
+    // Register Submission
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const role = document.getElementById('reg-role').value;
+
+      if (password.length < 6) {
+        return showToast('Password must be at least 6 characters', 'error');
+      }
+
+      try {
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password, role })
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          showToast('Registration successful! You may now login.');
+          setTimeout(() => {
+            switchTab('login');
+            document.getElementById('login-email').value = email;
+            document.getElementById('login-password').focus();
+          }, 1500);
+        } else {
+          showToast(data.error || 'Registration failed', 'error');
+        }
+      } catch (err) {
+        showToast('Network error', 'error');
+      }
+    });
+  </script>
+</body>
+</html>
